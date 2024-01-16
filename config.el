@@ -170,5 +170,21 @@
     (org-roam-tag-add '("draft")))
   (add-hook 'org-roam-capture-new-node-hook #'my/tag-new-node-as-draft))
 
+(after! ox-latex
+  (setq! org-latex-compiler "lualatex")
+  (setq! org-latex-default-class "jlreq")
+  (setq! org-latex-pdf-process '("latexmk -output-directory=%o %f"))
+  (setq! org-latex-packages-alist '(("" "tikz" t)))
+  (add-to-list 'org-latex-classes
+               '("jlreq"
+                 "
+\\documentclass[11pt,paper=a4]{jlreq}
+"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
 (when (eq window-system 'pgtk)
   (map! "s-x" 'execute-extended-command))
