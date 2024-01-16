@@ -169,3 +169,5 @@
   (defun my/tag-new-node-as-draft ()
     (org-roam-tag-add '("draft")))
   (add-hook 'org-roam-capture-new-node-hook #'my/tag-new-node-as-draft))
+
+(map! "s-x" 'execute-extended-command)
