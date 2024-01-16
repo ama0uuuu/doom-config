@@ -30,14 +30,14 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 14.0 :weight 'light))
+(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 12.5 :weight 'light))
 (after! unicode-fonts
   (dolist (unicode-block '("Hiragana"
                            "Katakana"
                            "Halfwidth and Fullwidth Forms"
                            "CJK Unified Ideographs"
                            "CJK Symbols and Punctuation"))
-    (push "Hiragino Sans"
+    (push "Noto Sans CJK JP"
           (cadr (assoc unicode-block unicode-fonts-block-font-mapping))))
   (dolist (unicode-block '("Mathematical Alphanumeric Symbols"
                            "Mathematical Operators"
@@ -116,7 +116,7 @@
 
 (after! org-roam
   (setq! org-preview-latex-default-process 'dvisvgm
-        org-format-latex-options (plist-put org-format-latex-options :scale 1.2)
+        org-format-latex-options (plist-put org-format-latex-options :scale 0.8)
         org-roam-capture-templates
         '(("m" "main" plain "%?"
            :if-new (file+head "main/%<%Y%m%d%H%M%S>-${slug}.org"
