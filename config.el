@@ -186,5 +186,8 @@
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
+(after! org
+  (setq! org-file-apps-gnu '((remote . emacs) (t . "xdg-open %s"))))
+
 (when (eq window-system 'pgtk)
   (map! "s-x" 'execute-extended-command))
