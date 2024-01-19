@@ -51,3 +51,4 @@
 
 (package! ddskk)
 (package! citar-org-roam)
+(package! cdlatex)
