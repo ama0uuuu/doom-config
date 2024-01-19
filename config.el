@@ -30,7 +30,9 @@
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size (if (eq window-system 'mac) 14.0 12.5) :weight 'light))
+(setq doom-font (font-spec :family "DejaVu Sans Mono"
+                           :size (if (eq window-system 'mac) 14.0 12.5)
+                           :weight 'light))
 (after! unicode-fonts
   (dolist (unicode-block '("Hiragana"
                            "Katakana"
