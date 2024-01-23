@@ -1,13 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
 (setq user-full-name "Sunao Kaneko"
       user-mail-address "sunao.kaneko@protonmail.com")
 
@@ -100,18 +92,6 @@
 (setq! default-input-method "japanese-skk")
 (map! :after evil :map evil-insert-state-map "C-j" nil)
 (map! :after evil-org :map evil-org-mode-map :ie "C-j" nil)
-;; (after! ddskk
-;;   (defun skk-C-j-key (arg)
-;;     (interactive "P")
-;;     (cond
-;;      ((and (null (skk-in-minibuffer-p))
-;;            (null skk-henkan-mode))
-;;       (skk-emulate-original-map arg))
-;;      (t
-;;       (skk-kakutei arg))))
-
-;;   (add-to-list 'skk-rom-kana-rule-list
-;;                '(skk-kakutei-key nil skk-C-j-key)))
 
 (add-to-list 'default-frame-alist '(width . 120))
 (add-to-list 'default-frame-alist '(height . 60))
@@ -148,23 +128,6 @@
   :config (citar-org-roam-mode))
 
 (setq! citar-bibliography '("~/org/roam/biblio.bib"))
-
-;; (defun my/org-roam-node-from-cite (keys-entries)
-;;   (interactive (list (citar-select-ref :multiple nil :rebuild-cache t)))
-;;   (let ((title (citar--format-entry-no-widths (cdr keys-entries)
-;;                                               "${author editor} :: ${title}")))
-;;     (org-roam-capture- :templates
-;;                        '(("r" "reference" plain "%?" :if-new
-;;                           (file+head "reference/${citekey}.org"
-;;                                      ":PROPERTIES:
-;; :ROAM_REFS: [cite:@${citekey}]
-;; :END:
-;; #+title: ${title}\n")
-;;                           :immediate-finish t
-;;                           :unnarrowed t))
-;;                        :info (list :citekey (car keys-entries))
-;;                        :node (org-roam-node-create :title title)
-;;                        :props '(:finalize find-file))))
 
 (setq! citar-org-roam-subdir "reference")
 (after! org-roam-capture
