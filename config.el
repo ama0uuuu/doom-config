@@ -177,6 +177,7 @@
   (setq! org-latex-default-class "jlreq")
   (setq! org-latex-pdf-process '("latexmk -output-directory=%o %f"))
   (setq! org-latex-packages-alist '(("" "tikz" t)))
+  (setq! org-format-latex-header "\\documentclass[tikz,dvisvgm]{article}\n\\usepackage[usenames]{color}\n[DEFAULT-PACKAGES]\n[PACKAGES]\n\\pagestyle{empty}             % do not remove\n% The settings below are copied from fullpage.sty\n\\setlength{\\textwidth}{\\paperwidth}\n\\addtolength{\\textwidth}{-3cm}\n\\setlength{\\oddsidemargin}{1.5cm}\n\\addtolength{\\oddsidemargin}{-2.54cm}\n\\setlength{\\evensidemargin}{\\oddsidemargin}\n\\setlength{\\textheight}{\\paperheight}\n\\addtolength{\\textheight}{-\\headheight}\n\\addtolength{\\textheight}{-\\headsep}\n\\addtolength{\\textheight}{-\\footskip}\n\\addtolength{\\textheight}{-3cm}\n\\setlength{\\topmargin}{1.5cm}\n\\addtolength{\\topmargin}{-2.54cm}")
   (add-to-list 'org-latex-classes
                '("jlreq"
                  "
