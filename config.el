@@ -31,8 +31,8 @@
 
 (custom-theme-set-faces
  'user
- '(variable-pitch ((t (:family "Hiragino Sans" :height 125 :weight regular))))
- '(fixed-pitch ((t (:family "DejaVu Sans Mono" :height 125 :weight light))))
+ '(variable-pitch ((t (:family "Hiragino Sans" :weight regular))))
+ '(fixed-pitch ((t (:family "DejaVu Sans Mono" :weight light))))
 
  '(line-number ((t (:inherit fixed-pitch))))
  '(line-number-current-line ((t (:inherit fixed-pitch))))
