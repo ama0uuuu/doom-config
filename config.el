@@ -122,8 +122,9 @@
 
 (after! org
   (setq! org-hide-emphasis-markers t
-         org-preview-latex-default-process 'dvisvgm
-         org-latex-preview-numbered t)
+         org-preview-latex-process-default 'dvisvgm
+         org-latex-preview-numbered t
+         org-latex-preview-preamble "\\documentclass[tikz,dvisvgm]{article}\n[DEFAULT-PACKAGES]\n[PACKAGES]\n\\usepackage{xcolor}\n")
   (setq! org-file-apps-gnu '((remote . emacs) (t . "xdg-open %s")))
   (add-hook 'org-mode-hook 'org-latex-preview-auto-mode)
   (add-hook 'org-mode-hook 'variable-pitch-mode)
@@ -171,7 +172,6 @@
   (setq! org-latex-default-class "jlreq")
   (setq! org-latex-pdf-process '("latexmk -output-directory=%o %f"))
   (setq! org-latex-packages-alist '(("" "tikz" t) ("" "amsmath" t) ("" "amssymb" t) ("" "mathtools" t)))
-  ;; (setq! org-format-latex-header "\\documentclass[tikz,dvisvgm]{article}\n\\usepackage[usenames]{color}\n[DEFAULT-PACKAGES]\n[PACKAGES]\n\\pagestyle{empty}             % do not remove\n% The settings below are copied from fullpage.sty\n\\setlength{\\textwidth}{\\paperwidth}\n\\addtolength{\\textwidth}{-3cm}\n\\setlength{\\oddsidemargin}{1.5cm}\n\\addtolength{\\oddsidemargin}{-2.54cm}\n\\setlength{\\evensidemargin}{\\oddsidemargin}\n\\setlength{\\textheight}{\\paperheight}\n\\addtolength{\\textheight}{-\\headheight}\n\\addtolength{\\textheight}{-\\headsep}\n\\addtolength{\\textheight}{-\\footskip}\n\\addtolength{\\textheight}{-3cm}\n\\setlength{\\topmargin}{1.5cm}\n\\addtolength{\\topmargin}{-2.54cm}")
   (add-to-list 'org-latex-classes
                '("jlreq"
                  "
